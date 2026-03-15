@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 const limiter = rateLimit({ windowMs: 60_000, max: 200 });
+const staticLimiter = rateLimit({ windowMs: 60_000, max: 1000 });
 app.use('/api/', limiter);
 
 app.use('/api/sessions', require('./routes/sessions'));
@@ -20,7 +21,7 @@ app.use('/api/stats', require('./routes/stats'));
 app.use('/api/upload', require('./routes/upload'));
 
 app.use(express.static(path.join(__dirname, '../public')));
-app.get('/{*path}', (req, res) => {
+app.get('/{*path}', staticLimiter, (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
