@@ -1,0 +1,27 @@
+{
+  "name": "Golf Shot Tracker",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "postCreateCommand": "npm install -g npm@latest && npm install",
+  "forwardPorts": [3000, 5173],
+  "portsAttributes": {
+    "3000": { "label": "Backend / Production" },
+    "5173": { "label": "Frontend Dev Server (Vite)" }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "anthropic.claude-code"
+      ],
+      "settings": {
+        "editor.formatOnSave": true
+      }
+    }
+  }
+}

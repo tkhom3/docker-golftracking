@@ -1,0 +1,304 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #0d1117;
+  --surface: #161b22;
+  --surface2: #21262d;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-muted: #6e7681;
+  --green: #3fb950;
+  --green-dim: #238636;
+  --accent: #58a6ff;
+  --red: #f85149;
+  --orange: #d29922;
+  --radius: 6px;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  height: 56px;
+  flex-shrink: 0;
+}
+
+.header h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.session-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+}
+
+.session-selector label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+/* ── Nav ── */
+.nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.nav button:hover { color: var(--text); }
+.nav button.active { color: var(--text); border-bottom-color: var(--green); }
+
+/* ── Main content ── */
+.main {
+  flex: 1;
+  padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1rem;
+}
+
+/* ── Forms & Inputs ── */
+input, select, textarea {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-size: 0.875rem;
+  padding: 0.4rem 0.65rem;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+input:focus, select:focus { border-color: var(--accent); }
+
+input[type="file"] {
+  padding: 0.3rem 0.5rem;
+  cursor: pointer;
+}
+
+label {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* ── Buttons ── */
+.btn {
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.4rem 0.9rem;
+  transition: opacity 0.15s;
+}
+
+.btn:hover { opacity: 0.85; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary { background: var(--green-dim); color: #fff; }
+.btn-danger { background: transparent; color: var(--red); border: 1px solid var(--red); }
+.btn-danger:hover { background: var(--red); color: #fff; opacity: 1; }
+
+/* ── Sessions table ── */
+.sessions-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.sessions-table th,
+.sessions-table td {
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sessions-table th {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sessions-table tr:last-child td { border-bottom: none; }
+.sessions-table tr:hover td { background: var(--surface2); }
+
+/* ── Club filter pills ── */
+.club-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.club-pill {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  background: transparent;
+  transition: all 0.15s;
+}
+
+.club-pill.active {
+  color: #000;
+  border-color: transparent;
+  font-weight: 600;
+}
+
+/* ── Stat badges ── */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.stat-item {
+  background: var(--surface2);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.2rem;
+}
+
+/* ── Empty state ── */
+.empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 3rem 1rem;
+}
+
+/* ── Upload drop area ── */
+.upload-area {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  margin-bottom: 1rem;
+}
+
+.upload-area:hover, .upload-area.drag-over { border-color: var(--accent); color: var(--text); }
+
+/* ── Error / success ── */
+.msg-error {
+  color: var(--red);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.msg-success {
+  color: var(--green);
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+/* ── Recharts custom ── */
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: var(--surface2) !important;
+  border-color: var(--border) !important;
+  color: var(--text) !important;
+}
+
+/* ── Dispersion range background ── */
+.range-bg {
+  fill: #0a1f0a;
+}
