@@ -1,3 +1,9 @@
+## [1.0.2](https://github.com/tkhom3/docker-golftracking/compare/v1.0.1...v1.0.2) (2026-03-15)
+
+### 🐛 Bug Fixes
+
+* update rate limiter ([bc660ea](https://github.com/tkhom3/docker-golftracking/commit/bc660ea949b801583830bcd77c49601935943180))
+
 ## [1.0.1](https://github.com/tkhom3/docker-golftracking/compare/v1.0.0...v1.0.1) (2026-03-15)
 
 ### 🐛 Bug Fixes
