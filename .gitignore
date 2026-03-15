@@ -1,0 +1,13 @@
+.DS_STORE
+node_modules/
+dist/
+.env
+.env.local
+*.log
+.vscode/
+.idea/
+.env
+data/*
+.claude/*
+package-lock.json
+npm-debug.log*% 
