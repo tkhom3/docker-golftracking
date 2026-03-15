@@ -1,3 +1,9 @@
+## [1.0.1](https://github.com/tkhom3/docker-golftracking/compare/v1.0.0...v1.0.1) (2026-03-15)
+
+### 🐛 Bug Fixes
+
+* data dir ([400baa4](https://github.com/tkhom3/docker-golftracking/commit/400baa465486ebdba53bda96ff5178fbeb2569fb))
+
 ## 1.0.0 (2026-03-15)
 
 ### ✨ Features
