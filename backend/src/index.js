@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const rateLimit = require('express-rate-limit');
+const createRateLimiter = require('./rateLimiter');
 const path = require('path');
 const os = require('os');
 const { scheduleBackups } = require('./backup');
@@ -11,8 +11,8 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-const limiter = rateLimit({ windowMs: 60_000, max: 200 });
-const staticLimiter = rateLimit({ windowMs: 60_000, max: 1000 });
+const limiter = createRateLimiter(60_000, 200);
+const staticLimiter = createRateLimiter(60_000, 1000);
 app.use('/api/', limiter);
 
 app.use('/api/sessions', require('./routes/sessions'));
