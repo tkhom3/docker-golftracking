@@ -1,5 +1,5 @@
 # Stage 1: Build the React frontend
-FROM node:22-bookworm-slim AS frontend-build
+FROM node:25-bookworm-slim AS frontend-build
 RUN apt-get update && apt-get upgrade -y --no-install-recommends && rm -rf /var/lib/apt/lists/* \
     && npm install -g npm@latest
 WORKDIR /app
@@ -10,7 +10,7 @@ WORKDIR /app/frontend
 RUN npm run build
 
 # Stage 2: Build the Node/Express backend
-FROM node:22-bookworm-slim AS backend-build
+FROM node:25-bookworm-slim AS backend-build
 RUN npm install -g npm@latest
 WORKDIR /app
 COPY package.json ./
@@ -19,7 +19,7 @@ COPY backend/src ./src
 COPY --from=frontend-build /app/frontend/dist ./public
 
 # Stage 3: Final image
-FROM node:22-bookworm-slim
+FROM node:25-bookworm-slim
 RUN apt-get update && apt-get upgrade -y --no-install-recommends \
     && apt-get install -y --no-install-recommends gosu supervisor \
     && rm -rf /var/lib/apt/lists/*
