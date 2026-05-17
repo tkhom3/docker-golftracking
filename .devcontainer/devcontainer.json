@@ -3,7 +3,7 @@
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
   "features": {
     "ghcr.io/devcontainers/features/node:2": { "version": "25" },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+    "ghcr.io/devcontainers/features/docker-in-docker:": {}
   },
   "postCreateCommand": "npm install -g npm@latest && npm install",
   "forwardPorts": [3000, 5173],
