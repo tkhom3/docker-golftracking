@@ -9,13 +9,13 @@
     "build:frontend": "cd frontend && vite build"
   },
   "dependencies": {
-    "better-sqlite3": "^13.1.1",
+    "better-sqlite3": "^13.2.0",
     "cors": "^2.8.5",
     "express": "^5.3.0",
     "multer": "^2.5.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "recharts": "^3.10.1"
+    "recharts": "^3.11.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.3.0",
